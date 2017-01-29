@@ -1,0 +1,51 @@
+crate table admin
+(
+adminNumber int NOT NULL AUTO_INCREMENT,
+userName varchar(60) NOT NULL,
+password varchar(60) NOT NULL,
+email varchar(60) NOT NULL,
+PRIMARY KEY (adminNumber)
+); 
+
+create table userTable
+(
+userNumber int NOT NULL AUTO_INCREMENT,
+firstName varchar(60) NOT NULL,
+lastName varchar(60) NOT NULL,
+password varchar(60) NOT NULL,
+email varchar(60) NOT NULL,
+province varchar(60) NOT NULL,
+city varchar(60) NOT NULL,
+company varchar(60) NOT NULL,
+PRIMARY KEY (userNumber)
+);
+
+create table buildings
+(
+buildingNumber int NOT NULL AUTO_INCREMENT,
+province varchar(60) NOT NULL,
+city varchar(60) NOT NULL,
+address varchar(60) NOT NULL,
+active BOOLEAN,
+PRIMARY KEY (buildingNumber)
+); 
+
+create table rooms
+(
+roomNumber int NOT NULL AUTO_INCREMENT,
+FOREIGN KEY (buildingNumber) REFERENCES buildings(buildingNumber),
+capacity int,
+info varchar(60),
+active BOOLEAN,
+PRIMARY KEY (roomNumber)
+);
+
+create table bookings
+(
+bookingNumber int NOT NULL AUTO_INCREMENT,
+FOREIGN KEY (userNumber) REFERENCES userTable(userNumber),
+FOREIGN KEY (roomNumber) REFERENCES rooms(roomNumber),
+startBooking DATETIME,
+endBooking DATETIME,
+info varchar(60)
+);
