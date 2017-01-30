@@ -1,4 +1,4 @@
-crate table admin
+create table admin
 (
 adminNumber int NOT NULL AUTO_INCREMENT,
 userName varchar(60) NOT NULL,
