@@ -6,7 +6,7 @@
 <title>Registration</title>
 </head>
 <body>
-	<form action="Registerservlet" method="post">
+	<form name ="register" action="Registerservlet" method="post">
 		<table>
             <tr>
                     <td>User ID</td>
@@ -43,7 +43,7 @@
     		</tr>
     		<tr>
     		        <td>Province</td>
-            	    <td><select name="provinceDropDown">
+            	    <td><select name="province">
 						<option value="ontario">Ontario</option>
 						<option value="quebec">Quebec</option>
 						<option value="other">Other</option>
