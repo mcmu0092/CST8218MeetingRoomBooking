@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
-	<title>Board Room Booking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Board Room Booking</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="soStyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -14,35 +16,17 @@
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <!-- Navbar section -->
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="#main">LOGIN</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#about">ABOUT</a></li>
-					<li><a href="#booking">BOOKING</a></li>
-					<li><a href="#contact">CONTACT</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- Main Tittle Section -->
+	<%@include file="Header.jsp" %>
+	<!-- Main Title Section -->
 	<div class="jumbotron">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-2">
-				  <img src="logo2.png" class="img-responsive">
+				  <img src="resource/logo2.png" class="img-responsive">
 				</div>
 				<div class="col-md-10">
 					<h1 class="title">
-						<span class="bgfont">M</span><span class="smallFont">EETING</span>
+						<span class="bgfont">B</span><span class="smallFont">ORAD</span>
 						<span class="bgfont">R</span><span class="smallFont">OOM</span>
 						<span class="bgfont">B</span><span class="smallFont">OOKING</span>
 					</h1>
@@ -58,37 +42,37 @@
 		<div class="row text-center">
 			<div class="col-sm-4">
 				<div class="thumbnail">
-					<img src="meetingA.jpg" alt="Paris">
-					<p><strong>Meeting Room A</strong></p>
+					<img src="resource/meetingA.jpg" alt="Vancouver">
+					
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="thumbnail">
-					<img src="meetingB.jpg" alt="New York">
-					<p><strong>Meeting Room B</strong></p>
+					<img src="resource/meetingB.jpg" alt="Ottawa">
+					
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="thumbnail">
-					<img src="meetingC.jpg" alt="San Francisco">
-					<p><strong>Meeting Room C</strong></p>
+					<img src="resource/meetingC.jpg" alt="Montreal">
+					
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- Container (Booking Section) -->
-	<div id="booking" class="container-fluid">
+	<!-- <div id="booking" class="container-fluid">
 		<h2 class="text-center" >BOOKING</h2>
 		<hr>
 		<div id="calendar"></div>
-	</div>
+	</div> -->
 	<!-- Container (Contact Section) -->
 	<div id="contact" class="container-fluid bg-grey">
 		<h2 class="text-center">CONTACT</h2>
 		<div class="row">
 			<div class="col-sm-5">
 			  <p>Contact us and we'll get back to you within 24 hours.</p>
-			  <p><span class="glyphicon glyphicon-map-marker"></span> Ottawa, CAN</p>
+			  <p><span class="glyphicon glyphicon-map-marker"></span> Ottawa, ON CAN</p>
 			  <p><span class="glyphicon glyphicon-phone"></span> +1800-555-5555</p>
 			  <p><span class="glyphicon glyphicon-envelope"></span> dude@algonquin.com</p>
 			</div>
@@ -111,7 +95,7 @@
 	  </div>
 	</div>
 	<!-- script for smooth scrolling & iniate calendar-->
-	<script>
+	<!-- <script>
 		$(document).ready(function(){
 			$('#calendar').fullCalendar({
 				dayClick: function() {
@@ -140,6 +124,6 @@
 			} // End if
 		  });
 		})
-	</script>
+	</script> -->
 </body>
 </html>
