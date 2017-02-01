@@ -22,8 +22,8 @@ public class RegisterDao
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "boardroom";
         String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";						/* Change for your database */
-        String password = "beme123";					/* Change for your database */
+        String userName = "BoradRoom";
+        String password = "password";					/* Change for your database */
         
         try {
             Class.forName(driver).newInstance();
