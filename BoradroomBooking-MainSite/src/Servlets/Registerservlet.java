@@ -31,7 +31,14 @@ public class Registerservlet extends HttpServlet
 		String province = request.getParameter("province");
 		
 		RegisterDao.register(username, password, firstName, lastName, email, company, city, province);
-			
+		
+        if (session!=null){
+        	 session.setAttribute("name", username);
+        }
+        RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
+        rd.forward(request,response);
+		
+		
 		/*
 		//Checks variable validity
 		if(checkValidity(username, password, firstName, lastName, email, company, city, province))
