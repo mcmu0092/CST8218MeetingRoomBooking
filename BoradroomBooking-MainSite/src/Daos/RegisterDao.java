@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import com.brb.dao.*;
 
 public class RegisterDao 
 {
@@ -13,39 +14,43 @@ public class RegisterDao
 	{
 		/* registered is used for three return conditions. User is already in database = 1, 
 		user was just added to database = 0, some error occurred = -1 */
-		int registered = 0;			
+		int registered = 0;
+		int update;								//Used to see if changes were made to the database by executed query
 		
-        Connection conn = null;
+        Connection conn = Dao.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
-
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "boardroom";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "BoradRoom";
-        String password = "password";					/* Change for your database */
         
         try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
-
-            /* Rewrite to make sure all entries are unique */
-            pst = conn.prepareStatement("insert into usertable (password, firstName, lastName, "
-            							+ "email, company, city, province, username) values (?, ?, ?, ?, ?, ?, ?, ?)");
-            pst.setString(1, pass);
-            pst.setString(2, firstName);
-            pst.setString(3, lastName);
-            pst.setString(4, email);
-            pst.setString(5, company);
-            pst.setString(6, city);
-            pst.setString(7, province);
-            pst.setString(8, username);
-            
-            int update = pst.executeUpdate();
-            if(update > 0) {
-            	registered = 0;
-            }
-
+        	pst = conn.prepareStatement("SELECT * FROM usertable WHERE email='" + email + "' AND username='" + username + "'");
+        	rs = pst.executeQuery();
+        	
+        	//There are no matches, therefore unique email
+        	if(!rs.next())
+        	{
+        		pst.close();
+                pst = conn.prepareStatement("insert into usertable (password, firstName, lastName, "
+						+ "email, company, city, province, username) values (?, ?, ?, ?, ?, ?, ?, ?)");
+                pst.setString(1, pass);
+                pst.setString(2, firstName);
+                pst.setString(3, lastName);
+                pst.setString(4, email);
+                pst.setString(5, company);
+                pst.setString(6, city);
+                pst.setString(7, province);
+                pst.setString(8, username);
+                
+                update = pst.executeUpdate();
+                
+                //Updates were made
+                if(update > 0) {
+                	registered = 0;
+                }
+            //Email has already been used, or username already in use
+        	}else
+        	{
+        		registered = 1;
+        	}
         } catch (Exception e) {
         	registered = -1;
             System.out.println(e);

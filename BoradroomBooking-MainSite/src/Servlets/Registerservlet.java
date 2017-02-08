@@ -19,6 +19,8 @@ public class Registerservlet extends HttpServlet
 	{
 		HttpSession session = request.getSession(false);
 		PrintWriter out = response.getWriter();
+		int registered = -1; 		/* registered is used for three return conditions. User is already in database = 1, 
+										user was just added to database = 0, some error occurred = -1 */
 		response.setContentType("text/html");
 		
 		String username = request.getParameter("username");
@@ -30,13 +32,25 @@ public class Registerservlet extends HttpServlet
 		String city = request.getParameter("city");
 		String province = request.getParameter("province");
 		
-		RegisterDao.register(username, password, firstName, lastName, email, company, city, province);
+		registered = RegisterDao.register(username, password, firstName, lastName, email, company, city, province);
 		
-        if (session!=null){
-        	 session.setAttribute("name", username);
-        }
+		//Checks results of registering
+		switch(registered)
+		{
+		case -1:
+			break;
+		case 0:
+	        if (session!=null){
+	        	 session.setAttribute("name", username);
+	        }
+			break;
+		case 1:
+			break;
+			
+		}
         RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-        rd.forward(request,response);
+        //rd.forward(request,response);
+        response.sendRedirect("index.jsp");
 		
 		
 		/*
