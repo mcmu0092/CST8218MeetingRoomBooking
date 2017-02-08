@@ -1,5 +1,6 @@
-create database BoardRoom;
-use BoardRoom;
+drop database boardroom;
+create database boardroom;
+use boardroom;
 create table admin
 (
 adminNumber int NOT NULL AUTO_INCREMENT,
@@ -14,12 +15,13 @@ create table userTable
 userNumber int NOT NULL AUTO_INCREMENT,
 firstName varchar(60) NOT NULL,
 lastName varchar(60) NOT NULL,
+username varchar(60) NOT NULL,
 password varchar(60) NOT NULL,
 email varchar(60) NOT NULL,
 province varchar(60) NOT NULL,
 city varchar(60) NOT NULL,
 company varchar(60) NOT NULL,
-PRIMARY KEY (userNumber)
+PRIMARY KEY (userNumber, username)
 );
 
 create table buildings
