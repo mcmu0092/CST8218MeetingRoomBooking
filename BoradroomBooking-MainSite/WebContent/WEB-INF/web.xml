@@ -18,7 +18,7 @@
 
  <servlet>
     <servlet-name>register</servlet-name>
-    <servlet-class>Servlets.Registerservlet</servlet-class>
+    <servlet-class>com.brb.servlets.Registerservlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>register</servlet-name>

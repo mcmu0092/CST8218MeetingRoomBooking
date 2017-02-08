@@ -50,7 +50,7 @@
 					</select></td>
     		</tr>
     		<tr>
-            	    <td><input type="submit" value="Login" /></td>
+            	    <td><input type="submit" value="Register" /></td>
     		</tr>
 		</table>
 	</form>
