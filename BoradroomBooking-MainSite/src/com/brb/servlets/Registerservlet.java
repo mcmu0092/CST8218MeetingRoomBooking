@@ -1,4 +1,4 @@
-package Servlets;
+package com.brb.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Daos.RegisterDao;
-import Servlets.Registerservlet;
+import com.brb.dao.RegisterDao;
+import com.brb.servlets.Registerservlet;
 
 public class Registerservlet extends HttpServlet
 {
