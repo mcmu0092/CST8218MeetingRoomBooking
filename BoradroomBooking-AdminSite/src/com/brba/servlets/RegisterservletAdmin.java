@@ -46,20 +46,7 @@ public class RegisterservletAdmin extends HttpServlet
         RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
         //rd.forward(request,response);
         response.sendRedirect("index.jsp");
-		
-		
-		/*
-		//Checks variable validity
-		if(checkValidity(username, password, firstName, lastName, email, company, city, province))
-		{//Variables valid
-			
-		}else
-		{//Variables invalid
-			
-		}
-		*/
-		
-		
+
 		
 	}//End of doPost
 	
