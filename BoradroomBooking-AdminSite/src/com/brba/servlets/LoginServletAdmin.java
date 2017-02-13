@@ -32,8 +32,7 @@ public class LoginServletAdmin extends HttpServlet {
             if (session!=null){
             	 session.setAttribute("name", n);
             }
-            RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-            rd.forward(request,response);  
+            response.sendRedirect("MainMenu.jsp"); 
           
         }  
         else{  
