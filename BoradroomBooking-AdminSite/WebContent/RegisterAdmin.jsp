@@ -6,6 +6,7 @@
 <title>Registration</title>
 </head>
 <body>
+<%@include file="Header.jsp" %>
 	<form action="RegisterservletAdmin" method="post">
 		<table>
 			<tr>

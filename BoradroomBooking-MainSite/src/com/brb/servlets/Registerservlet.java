@@ -49,7 +49,7 @@ public class Registerservlet extends HttpServlet
 			
 		}
         RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-        //rd.forward(request,response);
+        //rd.forward(request,null);
         response.sendRedirect("index.jsp");
 		
 		

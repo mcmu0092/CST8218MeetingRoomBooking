@@ -26,6 +26,7 @@
 					
 					<%} else { %>
 				Welcome, <%= session.getAttribute("name") %>
+				<a href="Logout.jsp">Logout</a>
 			<%} %>
 			</div>
 			
@@ -33,7 +34,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="#booking">BOOKING</a></li>
-					<li><a href="#contact">CONTACT</a></li>
+					<li><a href="index.jsp#contact">CONTACT</a></li>
 				</ul>
 			</div>
 		</div>

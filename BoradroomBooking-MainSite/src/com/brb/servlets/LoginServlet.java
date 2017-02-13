@@ -33,8 +33,7 @@ public class LoginServlet extends HttpServlet{
             if (session!=null){
             	 session.setAttribute("name", n);
             }
-            RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-            rd.forward(request,response);  
+            response.sendRedirect("index.jsp");  
           
         }  
         else{  

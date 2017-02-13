@@ -5,6 +5,7 @@
     version="2.5">
 
 
+
  	<servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>com.brba.servlets.LoginServletAdmin</servlet-class>
@@ -29,4 +30,5 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
 </web-app>
