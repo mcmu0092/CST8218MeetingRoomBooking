@@ -6,8 +6,11 @@
 <title>Registration</title>
 </head>
 <body>
-	<form name ="register" action="RegisterservletAdmin" method="post">
+	<form action="RegisterservletAdmin" method="post">
 		<table>
+			<tr>
+				<td>ADMIN REGISTRATION</td>
+			</tr>
             <tr>
                     <td>User ID</td>
                     <td><input type="text" name="username" required="required" /></td>
