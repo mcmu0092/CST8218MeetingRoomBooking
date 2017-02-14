@@ -1,4 +1,4 @@
-package com.brb.servlets;
+package com.brba.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.brb.dao.RegisterDao;
-import com.brb.servlets.Registerservlet;
+import com.brba.dao.RegisterDao;
+import com.brba.servlets.RegisterservletAdmin;
 
-public class Registerservlet extends HttpServlet
+public class RegisterservletAdmin extends HttpServlet
 {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -25,14 +25,9 @@ public class Registerservlet extends HttpServlet
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("userpass");
-		String firstName = request.getParameter("firstname");
-		String lastName = request.getParameter("lastname");
 		String email = request.getParameter("email");
-		String company = request.getParameter("company");
-		String city = request.getParameter("city");
-		String province = request.getParameter("province");
 		
-		registered = RegisterDao.register(username, password, firstName, lastName, email, company, city, province);
+		registered = RegisterDao.register(username, password, email);
 		
 		//Checks results of registering
 		switch(registered)
@@ -49,27 +44,13 @@ public class Registerservlet extends HttpServlet
 			
 		}
         RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-        //rd.forward(request,null);
+        //rd.forward(request,response);
         response.sendRedirect("index.jsp");
-		
-		
-		/*
-		//Checks variable validity
-		if(checkValidity(username, password, firstName, lastName, email, company, city, province))
-		{//Variables valid
-			
-		}else
-		{//Variables invalid
-			
-		}
-		*/
-		
-		
+
 		
 	}//End of doPost
 	
-	protected boolean checkValidity(String username, String password, String firstName, String lastName, 
-									String email, String company, String city, String province)
+	protected boolean checkValidity(String username, String password, String email)
 	{
 		boolean valid = false;
 		

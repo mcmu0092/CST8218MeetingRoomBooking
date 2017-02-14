@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Dao {
 	
 	
-    public Connection getConnection() {    
+    public static Connection getConnection() {    
     	Connection conn = null;
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "boardroom";

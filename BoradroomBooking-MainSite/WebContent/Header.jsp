@@ -25,6 +25,7 @@
 					
 					<%} else { %>
 				Welcome, <%= session.getAttribute("name") %>
+				<a href="Logout.jsp">Logout</a>
 			<%} %>
 			</div>
 			
