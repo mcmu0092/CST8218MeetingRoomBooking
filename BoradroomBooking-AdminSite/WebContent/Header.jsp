@@ -13,9 +13,8 @@
 <body>
 <%if(session.getAttribute("name") == null) { 
 	response.sendRedirect("Unauthorized.html");
-	} %>
-	Welcome, <%= session.getAttribute("name") %>
-	<a href="Logout.jsp">Logout</a>	
+} %>
+	
 	
 </body>
 </html>
