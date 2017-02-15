@@ -11,11 +11,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%-- 	<%if(session.getAttribute("name") == null) { 
+<%if(session.getAttribute("name") == null) { 
 	response.sendRedirect("Unauthorized.html");
 	} %>
 	Welcome, <%= session.getAttribute("name") %>
-	<a href="Logout.jsp">Logout</a>	 --%>
+	<a href="Logout.jsp">Logout</a>	
 	
 </body>
 </html>
