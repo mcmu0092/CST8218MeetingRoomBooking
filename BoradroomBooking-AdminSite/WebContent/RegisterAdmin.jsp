@@ -5,30 +5,40 @@
 <meta charset="ISO-8859-1">
 <title>Registration</title>
 </head>
-<body>
+<body class="hideOverFlow">
 <%@include file="Header.jsp" %>
-	<form action="RegisterservletAdmin" method="post">
-		<table>
-			<tr>
-				<td>ADMIN REGISTRATION</td>
-			</tr>
-            <tr>
-                    <td>User ID</td>
-                    <td><input type="text" name="username" required="required" /></td>
-            </tr>
-            <tr>
-                    <td>Password</td>
-
-                    <td><input type="password" name="userpass" required="required" /></td>
-            </tr>
-            <tr>
-            		<td>Email</td>
-            	    <td><input type="text" name="email" required="required" /></td>   
-    		</tr>
-    		<tr>
-            	    <td><input type="submit" value="Register" /></td>
-    		</tr>
-		</table>
-	</form>
+	<div class="container">
+		<div class="formContent">
+			<h1 class="col-sm-offset-1">ADMIN REGISTER</h1>
+			<form action="RegisterservletAdmin" method="post" class="form-horizontal">
+				<fieldset>
+			    	<div class="form-group">
+			    		<label class= "control-label col-sm-2" for="user">User ID:</label>
+			            <div class ="col-sm-9">
+			            	<input type="text" class="form-control" id="user" name="username" required="required" placeholder="Username"/>
+			            </div>       
+			        </div>
+			        <div class="form-group">       
+	                    <label class="control-label col-sm-2" for="pwd">Password:</label>
+	                    <div class ="col-sm-9">
+	                    	<input type="password" class="form-control" id="pwd" name="userpass" required="required" placeholder="Password" />
+	                    </div>
+	                </div>  
+	                 <div class="form-group">       
+	                    <label class="control-label col-sm-2" for="email">Email:</label>
+	                    <div class ="col-sm-9">
+	                    	<input type="text" class="form-control" id="email" name="email" required="required" placeholder="Email" />
+	                    </div>
+	                </div>
+			        <div class="form-group">        
+	      				<div class="col-sm-offset-2 col-sm-4">       
+		                    <input type="submit" value="Register" class="btn btn-default" />
+		                    <a href="MainMenu.jsp">Return to main menu</a>
+			        	</div>
+			        </div>   
+				</fieldset>
+			</form>
+		</div>
+	</div>	
 </body>
 </html>

@@ -1,0 +1,35 @@
+body{
+	height: auto;
+	background: url("resource/logo2.png") no-repeat center center fixed;
+	background-color:#34383f;
+	font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;	
+}
+.hideOverFlow{
+	overflow:hidden;
+}
+.formContent{
+	color:#ffffff;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width:80%;
+    background:rgba(184, 187, 193,0.9);
+    -moz-border-radius:25px;  /* for Firefox */
+	-webkit-border-radius:25px; /* for Webkit-Browsers */
+	border-radius:25px; /* regular */
+}
+#myTab .tab-content {
+  color : white;
+  background-color: #428bca;
+  
+}
+#myTab .nav-pills > li > a {
+ border-radius: 4px 4px 0 0 ;
+}
+a{
+	color: inherit; /* blue colors for links too */
+  	text-decoration: inherit; /* no underline */
+}
