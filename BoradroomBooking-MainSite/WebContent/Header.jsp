@@ -24,8 +24,7 @@
 					<a class="navbar-brand" href="resgister.jsp">REGISTER</a>
 					
 					<%} else { %>
-				Welcome, <%= session.getAttribute("name") %>
-				<a href="Logout.jsp">Logout</a>
+				<span class="navbar-brand">Welcome, <%= session.getAttribute("name") %> </span>
 			<%} %>
 			</div>
 			
@@ -34,6 +33,7 @@
 					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="#about">ABOUT</a></li>
 					<li><a href="#contact">CONTACT</a></li>
+					<%if(session.getAttribute("name")!= null) { %> <li><a href="Logout.jsp">LOGOUT</a></li> <% } %>
 				</ul>
 			</div>
 		</div>
