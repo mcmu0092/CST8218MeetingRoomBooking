@@ -27,7 +27,7 @@
 					            <div class ="col-sm-9">
 					            	<input type="text" class="form-control" id="rNumb" name="RoomNum" required="required" placeholder="Room number"/>
 					            </div>       
-					        </div>
+					        </div> 
 					        <div class="form-group">       
 			                    <label class="control-label col-sm-2" for="bNumb">Building:</label>
 			                    <div class ="col-sm-9">
@@ -43,7 +43,8 @@
 							  <div class="form-group">       
 			                    <label class="control-label col-sm-2" for="info">Info:</label>
 			                    <div class ="col-sm-9">
-			                    	<input type="text" class="form-control" id="info" name="Info" required="required" placeholder="optional" />
+			                    	<textarea class="form-control" id="info" name="Info" required="required" placeholder="optional"></textarea>
+<!-- 			                    	<input type="text" class="form-control" id="info" name="Info" required="required" placeholder="optional" /> -->
 			                    </div>
 			                </div>
 					        <div class="form-group">        
@@ -58,12 +59,12 @@
 			        <h2 class="col-sm-offset-1">ADD A BUILDING</h2>
 					<form action="" method="post" class="form-horizontal">
 						<fieldset>
-					    	<div class="form-group">
-					    		<label class= "control-label col-sm-2" for="bNumb">Building:</label>
-					            <div class ="col-sm-9">
-					            	<input type="text" class="form-control" id="bNumb" name="BuildingNum" required="required" placeholder="Building number"/>
-					            </div>       
-					        </div>
+<!-- 					    	<div class="form-group"> -->
+<!-- 					    		<label class= "control-label col-sm-2" for="bNumb">Building:</label> -->
+<!-- 					            <div class ="col-sm-9"> -->
+<!-- 					            	<input type="text" class="form-control" id="bNumb" name="BuildingNum" required="required" placeholder="Building number"/> -->
+<!-- 					            </div>        -->
+<!-- 					        </div> -->
 					        <div class="form-group">       
 			                    <label class="control-label col-sm-2" for="prov">Province:</label>
 			                    <div class ="col-sm-9">

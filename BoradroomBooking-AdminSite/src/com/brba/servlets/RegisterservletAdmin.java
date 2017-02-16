@@ -43,9 +43,9 @@ public class RegisterservletAdmin extends HttpServlet
 			break;
 			
 		}
-        RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
+        //RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
         //rd.forward(request,response);
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("MainMenu.jsp");
 
 		
 	}//End of doPost
