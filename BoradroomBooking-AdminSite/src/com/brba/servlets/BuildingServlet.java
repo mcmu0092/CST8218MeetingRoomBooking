@@ -25,12 +25,13 @@ public class BuildingServlet extends HttpServlet
 								   building was just added to database = 0, some error occurred = -1 */
 		response.setContentType("text/html");
 		
-		String province = request.getParameter("province");
-		String city = request.getParameter("city");
-		String address = request.getParameter("address");
-		String active = request.getParameter("active");
-		
-		added = BuildingDao.addBuilding(province, city, address, active);
+		String buildingNumber = request.getParameter("BuildingNum");
+		String province = request.getParameter("Province");
+		String city = request.getParameter("City");
+		String address = request.getParameter("Address");
+		//String active = request.getParameter("active");
+		String active = "0";		//Testing code, remove once dataEntry is updated to have active fields
+		added = BuildingDao.addBuilding(buildingNumber, province, city, address, active);
 		
 		/*//Checks results of adding building
 		switch(added)
@@ -45,8 +46,8 @@ public class BuildingServlet extends HttpServlet
 		}
 		*/
         RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-        //rd.forward(request,response);
-        response.sendRedirect("BuildingManagement.jsp");	
+        response.sendRedirect("dataEntry.jsp");
+        //response.sendRedirect("BuildingManagement.jsp");				Use this once we're ready to display lists
 	}//End of doPost
 	
 	public ArrayList<Row_Building> getBuildingList()

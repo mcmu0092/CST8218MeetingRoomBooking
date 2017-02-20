@@ -14,7 +14,7 @@ import com.brba.helpers.Row_Room;
 
 public class BuildingDao 
 {
-	public static int addBuilding(String province, String city, String address, String active)
+	public static int addBuilding(String buildingNumber, String province, String city, String address, String active)
 	{
 		int added = -1; 		/* added is used for three return conditions. Building is already in database = 1, 
 		   						   building was just added to database = 0, some error occurred = -1 */
@@ -32,11 +32,12 @@ public class BuildingDao
         	if(!rs.next())
         	{
         		pst.close();
-                pst = conn.prepareStatement("insert into buildings (province, city, address, active) values (?, ?, ?, ?)");
-                pst.setString(1, province);
-                pst.setString(2, city);
-                pst.setString(3, address);
-                pst.setString(4, active);
+                pst = conn.prepareStatement("insert into buildings (buildingNumber, province, city, address, active) values (?, ?, ?, ?, ?)");
+                pst.setString(1, buildingNumber);
+                pst.setString(2, province);
+                pst.setString(3, city);
+                pst.setString(4, address);
+                pst.setString(5, active);
                 
                 update = pst.executeUpdate();
                 

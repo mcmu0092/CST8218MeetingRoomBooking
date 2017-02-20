@@ -36,11 +36,12 @@ public class RoomServlet extends HttpServlet
 								   room was just added to database = 0, some error occurred = -1 */
 		response.setContentType("text/html");
 		
-		String roomID = request.getParameter("roomNumber");
-		String buildingID = request.getParameter("buildingNumber");
-		String capacity = request.getParameter("capacity");
-		String info = request.getParameter("info");
-		String active = request.getParameter("active");
+		String roomID = request.getParameter("RoomNum");
+		String buildingID = request.getParameter("BuildingNum");
+		String capacity = request.getParameter("Capacity");
+		String info = request.getParameter("Info");
+		//String active = request.getParameter("active");
+		String active = "0";		//Testing code, remove once dataEntry is updated to have active fields
 		
 		added = RoomDao.addRoom(roomID, buildingID, capacity, info, active);
 		
@@ -57,8 +58,8 @@ public class RoomServlet extends HttpServlet
 		}
 		*/
         RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-        //rd.forward(request,response);
-        response.sendRedirect("RoomManagement.jsp");	
+        response.sendRedirect("dataEntry.jsp");
+        //response.sendRedirect("RoomManagement.jsp");			Use this once we're ready to display lists
 	}//End of doPost
 
 }//End of RoomServlet
