@@ -3,6 +3,26 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
     version="2.5">
+    
+    <servlet>
+        <servlet-name>Building</servlet-name>
+        <servlet-class>com.brba.servlets.BuildingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Building</servlet-name>
+        <url-pattern>/BuildingServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Room</servlet-name>
+        <servlet-class>com.brba.servlets.RoomServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Room</servlet-name>
+        <url-pattern>/RoomServlet</url-pattern>
+    </servlet-mapping>
 
 
 

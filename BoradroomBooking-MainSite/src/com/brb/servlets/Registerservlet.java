@@ -51,21 +51,15 @@ public class Registerservlet extends HttpServlet
         RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
         //rd.forward(request,null);
         response.sendRedirect("index.jsp");
-		
-		
-		/*
-		//Checks variable validity
+					
+        /*//Checks variable validity
 		if(checkValidity(username, password, firstName, lastName, email, company, city, province))
 		{//Variables valid
 			
 		}else
 		{//Variables invalid
 			
-		}
-		*/
-		
-		
-		
+		}*/
 	}//End of doPost
 	
 	protected boolean checkValidity(String username, String password, String firstName, String lastName, 
