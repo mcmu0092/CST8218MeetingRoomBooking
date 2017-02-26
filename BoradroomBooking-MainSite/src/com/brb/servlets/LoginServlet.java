@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.brb.dao.*;
+import com.brb.utilities.*;
 
 public class LoginServlet extends HttpServlet{
 
@@ -22,8 +23,9 @@ public class LoginServlet extends HttpServlet{
         response.setContentType("text/html");  
         PrintWriter out = response.getWriter();  
         
-        String n=request.getParameter("username");  
-        String p=request.getParameter("userpass"); 
+        String n= request.getParameter("username");  
+        
+        String p= Encryption.encrypt(request.getParameter("userpass"));  //stores encrypted password
         
         
        
