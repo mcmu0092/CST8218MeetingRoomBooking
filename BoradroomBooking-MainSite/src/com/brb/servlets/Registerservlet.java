@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.brb.dao.RegisterDao;
 import com.brb.servlets.Registerservlet;
-
+import com.brb.utilities.*;
 public class Registerservlet extends HttpServlet
 {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -24,7 +24,7 @@ public class Registerservlet extends HttpServlet
 		response.setContentType("text/html");
 		
 		String username = request.getParameter("username");
-		String password = request.getParameter("userpass");
+		String password = Encryption.encrypt(request.getParameter("userpass")); //store encrypted password
 		String firstName = request.getParameter("firstname");
 		String lastName = request.getParameter("lastname");
 		String email = request.getParameter("email");

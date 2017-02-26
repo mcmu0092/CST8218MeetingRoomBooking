@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.brba.dao.*;
+import com.brb.utilities.*;
 
 public class LoginServletAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,8 +22,8 @@ public class LoginServletAdmin extends HttpServlet {
         response.setContentType("text/html");  
         PrintWriter out = response.getWriter();  
         
-        String n=request.getParameter("username");  
-        String p=request.getParameter("userpass"); 
+        String n= request.getParameter("username");  
+        String p= Encryption.encrypt(request.getParameter("userpass")); 
         
         
        
