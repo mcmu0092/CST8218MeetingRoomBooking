@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.brba.dao.*;
-
+import com.brb.utilities.*;
 public class RegisterDao 
 {
 	public static int register(String username, String pass, String email)
@@ -19,7 +19,7 @@ public class RegisterDao
         Connection conn = Dao.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
-        
+        pass = Encryption.decrypt(pass);
         try {
         	pst = conn.prepareStatement("SELECT * FROM admin WHERE email='" + email + "' AND userName='" + username + "'");
         	rs = pst.executeQuery();

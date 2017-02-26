@@ -5,13 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import com.brb.utilities.*;
 public class LoginDao {
     public static boolean validate(String name, String pass) {        
         boolean status = false;
         Connection conn = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
+        pass = Encryption.decrypt(pass);
 
         try {
             conn = new Dao().getConnection();
