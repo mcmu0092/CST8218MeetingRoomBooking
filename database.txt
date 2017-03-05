@@ -7,7 +7,9 @@ adminNumber int NOT NULL AUTO_INCREMENT,
 userName varchar(60) NOT NULL,
 password varchar(60) NOT NULL,
 email varchar(60) NOT NULL,
-PRIMARY KEY (adminNumber)
+active BOOLEAN,
+resetPassword boolean,
+PRIMARY KEY (adminNumber, userName)
 ); 
 
 create table userTable
