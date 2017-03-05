@@ -7,7 +7,9 @@ adminNumber int NOT NULL AUTO_INCREMENT,
 userName varchar(60) NOT NULL,
 password varchar(60) NOT NULL,
 email varchar(60) NOT NULL,
-PRIMARY KEY (adminNumber)
+active BOOLEAN,
+resetPassword boolean,
+PRIMARY KEY (adminNumber, userName)
 ); 
 
 create table userTable
@@ -41,7 +43,7 @@ buildingNumber int,
 capacity int,
 info varchar(60),
 active BOOLEAN,
-PRIMARY KEY (roomNumber),
+PRIMARY KEY (roomNumber, buildingNumber),
 FOREIGN KEY (buildingNumber) REFERENCES buildings(buildingNumber)
 );
 
@@ -49,11 +51,13 @@ create table bookings
 (
 bookingNumber int NOT NULL AUTO_INCREMENT,
 userNumber int,
+buildingNumber int,
 roomNumber int,
 startBooking DATETIME,
 endBooking DATETIME,
 info varchar(60),
 PRIMARY KEY (bookingNumber),
 FOREIGN KEY (userNumber) REFERENCES userTable(userNumber),
+FOREIGN KEY (buildingNumber) REFERENCES buildings(buildingNumber),
 FOREIGN KEY (roomNumber) REFERENCES rooms(roomNumber)
 );
