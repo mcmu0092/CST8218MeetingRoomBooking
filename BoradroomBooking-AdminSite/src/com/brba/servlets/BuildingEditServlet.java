@@ -9,21 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 import com.brba.dao.BuildingDao;
-import com.brba.helpers.Building;
-import com.brba.helpers.Room;
 
-public class BuildingServlet extends HttpServlet
-{
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
+public class BuildingEditServlet extends HttpServlet {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		PrintWriter out = response.getWriter();
-		RequestDispatcher rd;
+		
 		response.setContentType("text/html");
-		int status;
+		 RequestDispatcher rd;
+		 int status;
+		
 		String buildingNumber = request.getParameter("BuildingNum");
 		String province = request.getParameter("Province");
 		String city = request.getParameter("City");
@@ -36,29 +33,25 @@ public class BuildingServlet extends HttpServlet
 			active = "0";
 		}
 		
-		status = BuildingDao.addBuilding(buildingNumber, province, city, address, active);
-		
+		status=BuildingDao.editBuilding(buildingNumber, address, city, province, active);
 		switch(status){
 		case 0:// WOrked
 			 response.sendRedirect("BuildingManagement.jsp");
 			break;
 		case 1: // Found existing data
 			out.print("<p style=\"color:red\">A building at this location already exist</p>"); 
-   		     rd=request.getRequestDispatcher("BuildingManagement.jsp");  
+   		     rd=request.getRequestDispatcher("EditBuilding.jsp?buildingID="+buildingNumber);  
             rd.include(request,response);
 			break;
 		case -1:
 		default: // An Expected error
 			out.print("<p style=\"color:red\">An error happened</p>"); 
-			rd=request.getRequestDispatcher("BuildingManagement.jsp");  
+			rd=request.getRequestDispatcher("EditBuilding.jsp?buildingID="+buildingNumber);  
             rd.include(request,response);
 			break;
 		}
+		 
+       
+	}
 		
-         
-     }//End of doPost
-	
-	
-	
-	
-}//End of AddBuildingServlet
+}

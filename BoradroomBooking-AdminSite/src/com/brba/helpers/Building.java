@@ -1,6 +1,6 @@
 package com.brba.helpers;
 
-public class Row_Building
+public class Building
 {
 	private String province;
 	private String city;
