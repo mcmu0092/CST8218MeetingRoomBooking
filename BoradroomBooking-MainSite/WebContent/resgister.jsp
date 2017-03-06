@@ -31,7 +31,7 @@
 	                 <div class="form-group">       
 	                    <label class="control-label col-sm-2" for="email">Email:</label>
 	                    <div class ="col-sm-9">
-	                    	<input type="text" class="form-control" id="email" name="email" required="required" placeholder="Email" />
+	                    	<input type="email" class="form-control" id="email" name="email" required="required" placeholder="Email" />
 	                    </div>
 	                </div>
 	                <div class="form-group">
@@ -64,7 +64,7 @@
 			            	<select name="province" class="form-control" id="prov">
 								<option value="ontario">Ontario</option>
 								<option value="quebec">Quebec</option>
-								<option value="other">Other</option>
+								
 							</select>
 			            </div>       
 			        </div>	

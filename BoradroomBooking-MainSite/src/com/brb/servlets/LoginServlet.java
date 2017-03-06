@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.brb.dao.*;
+import com.brb.helpers.User;
 import com.brb.utilities.*;
 
 public class LoginServlet extends HttpServlet{
@@ -27,22 +28,21 @@ public class LoginServlet extends HttpServlet{
         
         String p= Encryption.encrypt(request.getParameter("userpass"));  //stores encrypted password
         
-        
-       
-
-        if(LoginDao.validate(n, p)){  
+        User user = UserDao.login(n, p);
+        if(user != null){
         	HttpSession session = request.getSession(false);
             if (session!=null){
-            	 session.setAttribute("name", n);
+            	 session.setAttribute("name", user.getUserName());
+            	 session.setAttribute("userID", user.getUserNumber());
+            	 session.setAttribute("firstName", user.getFirstName());
+            	 session.setAttribute("lastName", user.getLastName());
             }
             response.sendRedirect("index.jsp");  
-          
-        }  
-        else{  
-            out.print("<p style=\"color:red\">Sorry username or password error</p>");  
+        } else {
+        	out.print("<p style=\"color:red\">Sorry username or password error</p>");  
             RequestDispatcher rd=request.getRequestDispatcher("login.jsp");  
-            rd.include(request,response);  
-        }  
+            rd.include(request,response);
+        }
 
         out.close();  
     }  
