@@ -1,9 +1,10 @@
 package com.brba.helpers;
 
-public class Row_Room 
+public class Room 
 {
 	private String roomID;
 	private String buildingID;
+	private Building building;
 	private String Capacity;
 	private String Info;
 	private String Active;
@@ -16,6 +17,12 @@ public class Row_Room
 	{
 		return buildingID;
 	}//End of getBuildingID
+	public Building getBuilding(){
+		return building;
+	}
+	public void setBuilding(Building building){
+		this.building = building;
+	}
 	public String getCapacity()
 	{
 		return Capacity;
