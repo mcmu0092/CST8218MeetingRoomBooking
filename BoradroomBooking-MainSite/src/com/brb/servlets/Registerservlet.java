@@ -10,18 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.brb.dao.RegisterDao;
+import com.brb.dao.UserDao;
+import com.brb.helpers.User;
 import com.brb.servlets.Registerservlet;
 import com.brb.utilities.*;
 public class Registerservlet extends HttpServlet
 {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		HttpSession session = request.getSession(false);
+		
 		PrintWriter out = response.getWriter();
-		int registered = -1; 		/* registered is used for three return conditions. User is already in database = 1, 
-										user was just added to database = 0, some error occurred = -1 */
 		response.setContentType("text/html");
+		User user;
 		
 		String username = request.getParameter("username");
 		String password = Encryption.encrypt(request.getParameter("userpass")); //store encrypted password
@@ -32,44 +32,24 @@ public class Registerservlet extends HttpServlet
 		String city = request.getParameter("city");
 		String province = request.getParameter("province");
 		
-		registered = RegisterDao.register(username, password, firstName, lastName, email, company, city, province);
-		
-		//Checks results of registering
-		switch(registered)
-		{
-		case -1:
-			break;
-		case 0:
-	        if (session!=null){
-	        	 session.setAttribute("name", username);
-	        }
-			break;
-		case 1:
-			break;
-			
+		user = UserDao.register(username, password, firstName, lastName, email, company, city, province);
+
+
+		if(user != null){
+			HttpSession session = request.getSession(false);
+            if (session!=null){
+            	 session.setAttribute("name", user.getUserName());
+            	 session.setAttribute("userID", user.getUserNumber());
+            	 session.setAttribute("firstName", user.getFirstName());
+            	 session.setAttribute("lastName", user.getLastName());
+            }
+            response.sendRedirect("index.jsp"); 
+		} else {
+		   out.print("<p style=\"color:red\">A user with this name/email already exist</p>"); 
+		   RequestDispatcher rd=request.getRequestDispatcher("resgister.jsp");  
+           rd.include(request,response);
 		}
-        RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-        //rd.forward(request,null);
-        response.sendRedirect("index.jsp");
-					
-        /*//Checks variable validity
-		if(checkValidity(username, password, firstName, lastName, email, company, city, province))
-		{//Variables valid
-			
-		}else
-		{//Variables invalid
-			
-		}*/
 	}//End of doPost
 	
-	protected boolean checkValidity(String username, String password, String firstName, String lastName, 
-									String email, String company, String city, String province)
-	{
-		boolean valid = false;
-		
-		
-		
-		
-		return valid;
-	}//End of checkValidity method
+	
 }//End of Registerservlet class
