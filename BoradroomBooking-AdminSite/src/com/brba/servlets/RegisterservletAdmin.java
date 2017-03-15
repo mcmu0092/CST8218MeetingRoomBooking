@@ -31,7 +31,7 @@ public class RegisterservletAdmin extends HttpServlet
 		
 		switch(status){
 		case 0: // Worked
-			 response.sendRedirect("AdminManagement.jsp");
+			response.sendRedirect("AdminManagement.jsp");
 			break;
 		case 1: // Found existing data
 			out.print("<p style=\"color:red\">A user with this name already exist</p>"); 

@@ -17,6 +17,7 @@ a{
 	color: inherit; /* blue colors for links too */
   	text-decoration: inherit; /* no underline */
 }
+
 .headerContent{
 	padding:15px;
 	margin-top: 40px;
@@ -70,6 +71,7 @@ a{
 	color: #ffffff;
 	margin-bottom: 0;
 }
+
 .navbar {
     margin-bottom: 0;
     background-color: #ffa12a;
@@ -110,7 +112,6 @@ h4.italic{
 	margin-top:0;
 	font-style: italic;
  }
-
 
    
 
