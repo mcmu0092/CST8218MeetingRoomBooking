@@ -15,35 +15,35 @@ AdminUser aUser = AdminDao.getAdminUserDetails(adminID);
 <body class="hideOverFlow">
 <%@include file="Header.jsp" %>
 	<div id="myTab" class="container formContent">
-		<h1>EditAccount</h1>
+		<h1><%=resource.getString("edit.label.title")%></h1>
 		<div class="container-fluid">
 			<ul class="nav nav-pills">
-				<li class="active"><a href="#account" data-toggle="tab">Edit Account</a></li>
-				<li ><a href="AdminManagement.jsp">RETURN TO Admin Management</a></li>
+				<li class="active"><a href="#account" data-toggle="tab"><%=resource.getString("edit.label.account")%></a></li>
+				<li ><a href="AdminManagement.jsp"><%=resource.getString("edit.label.returnA")%></a></li>
 				
-				<li><a href="MainMenu.jsp">RETURN TO MAIN MENU</a></li>
+				<li><a href="MainMenu.jsp"><%=resource.getString("edit.label.returnM")%></a></li>
 			</ul>
 			<div class="tab-content clearfix">
 				<div class="tab-pane active" id="account">
-					<h2 class="col-sm-offset-1">Edit Administrative Account</h2>
+					<h2 class="col-sm-offset-1"><%=resource.getString("edit.form.title")%></h2>
 					<form action="AdminEditServlet" method="post" class="form-horizontal">
 					<fieldset>
 					<input type="hidden" id="aNumb" name="AdminNum" value="<%=adminID %>" />
 			    	<div class="form-group">
-			    		<label class= "control-label col-sm-2" for="user">UserName:</label>
+			    		<label class= "control-label col-sm-2" for="user"><%=resource.getString("edit.form.user")%></label>
 			            <div class ="col-sm-9">
 			            	<input type="text" class="form-control" id="user" name="username" value="<%=aUser.getUserName() %>" required="required" placeholder="Username"/>
 			            </div>       
 			        </div>
 			        
 	                 <div class="form-group">       
-	                    <label class="control-label col-sm-2" for="email">Email:</label>
+	                    <label class="control-label col-sm-2" for="email"><%=resource.getString("edit.form.email")%></label>
 	                    <div class ="col-sm-9">
 	                    	<input type="email" class="form-control" id="email" name="email" value="<%=aUser.getEmail() %>" required="required" placeholder="Email" />
 	                    </div>
 	                </div>
 	                <div class="form-group">        
-					        	<label class="control-label col-sm-2" for="active">Active:</label>
+					        	<label class="control-label col-sm-2" for="active"><%=resource.getString("edit.form.active")%></label>
 			      				<div class ="col-sm-9">       
 				                   <%if(aUser.getActive().equals("1")){%>
 			      						<input type="checkbox"  id="active" name="Active" checked="checked" />
@@ -55,7 +55,7 @@ AdminUser aUser = AdminDao.getAdminUserDetails(adminID);
 					        </div> 
 			        <div class="form-group">        
 	      				<div class="col-sm-offset-2 col-sm-4">       
-		                    <input type="submit" value="Edit" class="btn btn-default" />
+		                    <input type="submit" value="<%=resource.getString("edit.form.update")%>" class="btn btn-default" />
 			        	</div>
 			        </div>   
 				</fieldset>

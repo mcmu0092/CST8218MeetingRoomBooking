@@ -14,7 +14,7 @@ public class UserDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		User user = null;
-		password = Encryption.decrypt(password);
+		//password = Encryption.decrypt(password); NOT REQUIRED
 		
 		try{
 			pst = conn.prepareStatement("select userNumber, username, firstName, lastName from userTable where username=? and password=?");
@@ -61,7 +61,7 @@ public class UserDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		User user = null;
-		password = Encryption.decrypt(password);
+		//password = Encryption.decrypt(password); //NOT REQUIRED
 		
 		try{
 			pst = conn.prepareStatement("SELECT userNumber FROM usertable WHERE username=? OR email=?");
