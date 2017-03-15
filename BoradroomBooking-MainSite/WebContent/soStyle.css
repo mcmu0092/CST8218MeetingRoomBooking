@@ -54,6 +54,13 @@ a{
 	-webkit-border-radius:25px; /* for Webkit-Browsers */
 	border-radius:25px; /* regular */
 }
+.roomContent{
+	
+	background-color: #009BFF; 
+	background:rgba(0,82,136,0.7);
+	padding: 15px;
+	color:	#ffffff;
+}
 .logo {
 	color: #ffa12a;
     font-size: 140px;

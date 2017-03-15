@@ -35,7 +35,7 @@
 	<!-- Container (About Section) -->
 	<div id="about" class="container-fluid">
 		<div class="aboutContent">
-			<h2><strong>BOOK A ROOM NOW!</strong></h2>
+			<h2><strong><a href="Booking.jsp?rowOffSet=1">BOOK A ROOM NOW!</a></strong></h2>
 			<h3>
 				We Have a variety of rooms and facilities to choose from across Canada. We offer individuals, entrepreneurs and 
 				small businesses effective business solutions including meeting rooms, day offices, conference rooms, and coworking spaces.

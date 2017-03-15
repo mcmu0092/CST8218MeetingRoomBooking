@@ -24,6 +24,15 @@
     <servlet-name>register</servlet-name>
     <url-pattern>/Registerservlet</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>BookingServlet</servlet-name>
+    <servlet-class>com.brb.servlets.BookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookingServlet</servlet-name>
+    <url-pattern>/BookingServlet</url-pattern>
+  </servlet-mapping>
 
 
     <welcome-file-list>
