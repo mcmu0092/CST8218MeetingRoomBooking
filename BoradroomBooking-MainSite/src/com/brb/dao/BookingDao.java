@@ -43,7 +43,50 @@ public class BookingDao {
 		
 	}
 	
-	public static void checkRoomAvailability(){
+	public static int checkRoomAvailability(String buildingNum, String roomNum, String startDate){
+		Connection conn = Dao.getConnection();
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		int status = 0;
+		
+		try{
+			pst = conn.prepareStatement("SELECT bookingNumber FROM bookings WHERE buildingNumber =? AND roomNumber = ? AND startBooking = ?");
+			pst.setString(1, buildingNum);
+			pst.setString(2, roomNum);
+			pst.setString(3, startDate);
+			
+			rs = pst.executeQuery();
+			if(rs.next()){
+				status = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			status = -1;
+            System.out.println(e);
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+		
+		return status;
 		
 	}
 }

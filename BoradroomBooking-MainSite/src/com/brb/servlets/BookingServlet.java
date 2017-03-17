@@ -1,12 +1,14 @@
 package com.brb.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,25 +23,43 @@ public class BookingServlet extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {
-		
-		Date startDateTime = null;;
+		int ava = 0;
+		 
+		Date startDateTime = null;
 		try {
 			startDateTime = sdf.parse(request.getParameter("StartDateTime"));
 				
 		String duration = request.getParameter("duration");
 		String info = request.getParameter("Info");
+		Calendar startTime = Calendar.getInstance();
+		startTime.setTime(startDateTime);
+		startTime.set(Calendar.SECOND, 00);
+		
 		Calendar endTime = Calendar.getInstance();
 		endTime.setTime(startDateTime);
 		endTime.add(Calendar.MINUTE, Integer.parseInt(duration));
+		endTime.set(Calendar.SECOND, 00);
 		HttpSession session = request.getSession(false);
-		BookingDao.bookRoom(session.getAttribute("userID").toString(),  request.getParameter("BuildingNum"),  request.getParameter("RoomNum"), sdf.format(startDateTime), sdf.format(endTime.getTime()), info);
+		ava = BookingDao.checkRoomAvailability(request.getParameter("BuildingNum"),  request.getParameter("RoomNum"), sdf.format(startTime.getTime()));
+		session.setAttribute("error", ava);
+		if(ava == 0){
+			
+			
+			BookingDao.bookRoom(session.getAttribute("userID").toString(),  request.getParameter("BuildingNum"),  request.getParameter("RoomNum"), sdf.format(startTime.getTime()), sdf.format(endTime.getTime()), info);			
+			 response.sendRedirect("Booking.jsp?rowOffSet=1"); 
+		} else {
+			
+			RequestDispatcher rd=request.getRequestDispatcher("Booking.jsp?rowOffSet=1");  
+            rd.include(request,response);
+		}
+		
 		
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
-		 response.sendRedirect("Booking.jsp?rowOffSet=1");  
+		 
 	}
 
 
