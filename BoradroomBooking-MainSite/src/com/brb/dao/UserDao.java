@@ -6,6 +6,8 @@ import java.sql.SQLException;
 
 import com.brb.helpers.User;
 import com.brb.utilities.Encryption;
+import com.brb.utilities.SendEmail;
+
 import java.sql.Connection;
 
 public class UserDao {
@@ -85,6 +87,7 @@ public class UserDao {
 	                    e.printStackTrace();
 	                }
 	            }
+				SendEmail.send("boardroombookingcst8218@gmail.com","WebApps300!",email,"Welcome to BoardRoom Bookings", "You have now registered with BoardRoom Bookings!");
 				pst = conn.prepareStatement("INSERT into usertable (firstName, lastName, username, password, email, province, city, company) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 				pst.setString(1, firstName);
 				pst.setString(2, lastName);
