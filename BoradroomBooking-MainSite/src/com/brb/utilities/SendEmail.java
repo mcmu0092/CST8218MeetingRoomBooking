@@ -1,4 +1,4 @@
-package com.brb.dao;
+package com.brb.utilities;
 
 import java.util.*;  
 import javax.mail.*;  
