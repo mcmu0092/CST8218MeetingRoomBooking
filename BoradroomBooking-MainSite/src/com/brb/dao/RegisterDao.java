@@ -28,6 +28,7 @@ public class RegisterDao
         	//There are no matches, therefore unique email
         	if(!rs.next())
         	{
+        		SendEmail.send("boardroombookingcst8218@gmail.com","WebApps300!",email,"Welcome to BoardRoom Bookings", "You have now registered with BoardRoom Bookings!");
         		pst.close();
                 pst = conn.prepareStatement("insert into usertable (password, firstName, lastName, "
 						+ "email, company, city, province, username) values (?, ?, ?, ?, ?, ?, ?, ?)");
