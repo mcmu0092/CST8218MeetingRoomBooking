@@ -3,8 +3,46 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
     version="2.5">
+    
+    <servlet>
+        <servlet-name>Building</servlet-name>
+        <servlet-class>com.brba.servlets.BuildingServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>Building</servlet-name>
+        <url-pattern>/BuildingServlet</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>BuildingEdit</servlet-name>
+        <servlet-class>com.brba.servlets.BuildingEditServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>BuildingEdit</servlet-name>
+        <url-pattern>/BuildingEditServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Room</servlet-name>
+        <servlet-class>com.brba.servlets.RoomServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Room</servlet-name>
+        <url-pattern>/RoomServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet>
+		<servlet-name>RoomEdit</servlet-name>
+		<servlet-class>com.brba.servlets.RoomEditServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+        <servlet-name>RoomEdit</servlet-name>
+        <url-pattern>/RoomEditServlet</url-pattern>
+    </servlet-mapping>
 
  	<servlet>
         <servlet-name>login</servlet-name>
@@ -14,6 +52,26 @@
     <servlet-mapping>
         <servlet-name>login</servlet-name>
         <url-pattern>/LoginServletAdmin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AdminEdit</servlet-name>
+        <servlet-class>com.brba.servlets.AdminEditServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminEdit</servlet-name>
+        <url-pattern>/AdminEditServlet</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>PasswordUpdate</servlet-name>
+        <servlet-class>com.brba.servlets.PasswordUpdateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PasswordUpdate</servlet-name>
+        <url-pattern>/PasswordUpdateServlet</url-pattern>
     </servlet-mapping>
 
 
