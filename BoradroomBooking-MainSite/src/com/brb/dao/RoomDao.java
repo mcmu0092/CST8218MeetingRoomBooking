@@ -9,7 +9,7 @@ import com.brb.helpers.Building;
 import com.brb.helpers.Room;
 public class RoomDao {
 
-	public static ArrayList<Room> getRoomList(){
+	public static ArrayList<Room> getRoomList(int limit, int rowOffSet){
 		Connection conn =Dao.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs =null;
@@ -18,8 +18,9 @@ public class RoomDao {
 	    Building building=null;
 	    
 	    try {
-        	pst = conn.prepareStatement("SELECT rm.roomNumber rm.capacity, bd.buildingNumber, bd.address, bd.city, bd.province FROM rooms rm INNER JOIN buildings bd ON rm.buildingNumber = bd.buildingNumber WHERE rm.active = 1");
-        	
+        	pst = conn.prepareStatement("SELECT rm.roomNumber, rm.capacity, rm.info, bd.buildingNumber, bd.address, bd.city, bd.province FROM rooms rm INNER JOIN buildings bd ON rm.buildingNumber = bd.buildingNumber WHERE rm.active = 1 LIMIT ? OFFSET ?");
+        	pst.setInt(1, limit);
+        	pst.setInt(2, rowOffSet);
         	rs = pst.executeQuery();
         	
         	//Stores the results
@@ -29,6 +30,7 @@ public class RoomDao {
         		room.setRoomID(rs.getString("rm.roomNumber"));
         		room.setBuildingID(rs.getString("bd.buildingNumber"));
         		room.setCapacity(rs.getString("rm.capacity"));
+        		room.setInfo(rs.getString("rm.info"));
         		building = new Building();
         		building.setID(rs.getString("bd.buildingNumber"));
         		building.setAddress(rs.getString("bd.address"));
@@ -121,4 +123,45 @@ public class RoomDao {
 		
 		return room;
 	}
+	
+	public static int getTotalNumberofRooms(){
+		Connection conn = Dao.getConnection();
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		int count = 0;
+		
+		try {
+			pst = conn.prepareStatement("SELECT COUNT(*) FROM rooms WHERE active = 1");
+			rs = pst.executeQuery();
+			if (rs.next()){
+				count = rs.getInt(1);
+			}
+		} catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+		return count;
+	}
+	
 }
