@@ -1,8 +1,6 @@
 package com.brb.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -19,6 +17,10 @@ import com.brb.dao.BookingDao;
 
 public class BookingServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
@@ -40,7 +42,7 @@ public class BookingServlet extends HttpServlet {
 		endTime.add(Calendar.MINUTE, Integer.parseInt(duration));
 		endTime.set(Calendar.SECOND, 00);
 		HttpSession session = request.getSession(false);
-		ava = BookingDao.checkRoomAvailability(request.getParameter("BuildingNum"),  request.getParameter("RoomNum"), sdf.format(startTime.getTime()));
+		//ava = BookingDao.checkRoomAvailability(request.getParameter("BuildingNum"),  request.getParameter("RoomNum"), sdf.format(startTime.getTime()));
 		session.setAttribute("error", ava);
 		if(ava == 0){
 			
