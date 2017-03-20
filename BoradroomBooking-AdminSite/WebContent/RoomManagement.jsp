@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="com.brba.servlets.*"%>
@@ -22,14 +23,15 @@
 		<h1><%=resource.getString("room.label.title")%></h1>
 		<div  class="container-fluid">	
 			<ul class="nav nav-pills">
-				<li class="active"><a href="#rooms" data-toggle="tab"><%=resource.getString("room.menu.add")%></a></li>
-				<li><a href="#roomDetails" data-toggle="tab"><%=resource.getString("room.menu.list")%></a></li>
+				<li class="active"><a href="#roomDetails" data-toggle="tab"><%=resource.getString("room.menu.list")%></a></li>
+				<li><a href="#rooms" data-toggle="tab"><%=resource.getString("room.menu.add")%></a></li>
+				
 				<li><a href="BuildingManagement.jsp"><%=resource.getString("room.menu.returnB")%></a></li>
 				<li><a href="MainMenu.jsp"><%=resource.getString("room.menu.returnM")%></a></li>
 			</ul>
 			
 			<div class="tab-content clearfix">
-				<div class="tab-pane active" id="rooms">
+				<div class="tab-pane" id="rooms">
 	          		<h2 class="col-sm-offset-1" ><%=resource.getString("room.form.title")%></h2>
 					<form action="RoomServlet" method="post" class="form-horizontal">
 						<fieldset>
@@ -66,7 +68,7 @@
 						</fieldset>
 					</form>
 					</div>
-				<div class='tab-pane' id='roomDetails'>
+				<div class='tab-pane active' id='roomDetails'>
 					<div class="container-fluid">
 					<%
 						ArrayList<Room> buildingRoomList = RoomDao.getRoomsForBuilding(buildingID);
