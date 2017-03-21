@@ -24,6 +24,15 @@
     <servlet-name>register</servlet-name>
     <url-pattern>/Registerservlet</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>editProfile</servlet-name>
+    <servlet-class>com.brb.servlets.EditProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editProfile</servlet-name>
+    <url-pattern>/EditProfileServlet</url-pattern>
+  </servlet-mapping>
 
 
     <welcome-file-list>
