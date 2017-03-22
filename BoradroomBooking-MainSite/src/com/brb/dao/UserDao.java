@@ -201,24 +201,29 @@ public class UserDao {
 		return user;
 	}//End of getUser
 	
-	public static void editProfile(String userNumber, String username, String firstName, String lastName,
+	public static void editProfile(String userNumber, String username, String password, String firstName, String lastName,
 									String email, String company, String city, String province)
 	{
 		Connection conn = Dao.getConnection();
 		PreparedStatement pst = null;
-		ResultSet rs = null;
+		
 		
 		try {
+//        	pst = conn.prepareStatement("UPDATE usertable SET firstName='" + firstName + "', lastName='" + lastName
+//        								+ "', username='" + username + "', email='" + email + "', province='" + province
+//        								+ "', city='" + city + "', company='" + company + "' WHERE userNumber='" + userNumber + "';");
+			
         	pst = conn.prepareStatement("UPDATE usertable SET firstName='" + firstName + "', lastName='" + lastName
-        								+ "', username='" + username + "', email='" + email + "', province='" + province
-        								+ "', city='" + city + "', company='" + company + "' WHERE userNumber='" + userNumber + "';");
-        	rs = pst.executeQuery();	//This line doesn't work
+					+ "', username='" + username + "', password='" + password + "', email='" + email + "', province='" + province
+					+ "', city='" + city + "', company='" + company + "' WHERE userNumber='" + userNumber + "';");
+        	
+        	pst.executeUpdate();
         	
         }catch (SQLTimeoutException SQLte){
         	System.out.println(SQLte);
     		
     	}catch (SQLException SQLe){
-    		System.out.println(SQLe);	//Getting this exception
+    		System.out.println(SQLe);
     		
 		}catch (Exception e) {
             System.out.println(e);
@@ -238,13 +243,7 @@ public class UserDao {
                     e.printStackTrace();
                 }
             }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            
         }	
 	}//End of editProfile
 }//End of UserDao
