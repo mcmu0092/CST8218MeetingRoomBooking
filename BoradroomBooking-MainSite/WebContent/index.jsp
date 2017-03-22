@@ -5,10 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Board Room Booking</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="soStyle.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <!-- Navbar section -->
@@ -35,7 +31,7 @@
 	<!-- Container (About Section) -->
 	<div id="about" class="container-fluid">
 		<div class="aboutContent">
-			<h2><strong>BOOK A ROOM NOW!</strong></h2>
+			<h2><strong><a href="Booking.jsp?rowOffSet=1">BOOK A ROOM NOW!</a></strong></h2>
 			<h3>
 				We Have a variety of rooms and facilities to choose from across Canada. We offer individuals, entrepreneurs and 
 				small businesses effective business solutions including meeting rooms, day offices, conference rooms, and coworking spaces.

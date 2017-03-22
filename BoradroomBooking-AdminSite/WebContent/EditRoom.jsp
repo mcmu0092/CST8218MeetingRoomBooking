@@ -18,47 +18,47 @@ Room room = RoomDao.getRoomDetails(buildingID, roomNum);
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Edit Room</title>
 </head>
 <body class="hideOverFlow">
 <%@include file="Header.jsp" %>
 	<div id="myTab" class="container formContent">
-		<h1>Edit Room </h1>
+		<h1><%=resource.getString("editRoom.label.title")%></h1>
 		<div  class="container-fluid">	
 			<ul class="nav nav-pills">
-				<li class="active"><a href="#rooms" data-toggle="tab">ROOMS</a></li>
-				<li><a href="RoomManagement.jsp?buildingID=<%=buildingID%>">RETURN TO Room Management</a></li>
-				<li><a href="MainMenu.jsp">RETURN TO MAIN MENU</a></li>
+				<li class="active"><a href="#rooms" data-toggle="tab"><%=resource.getString("editRoom.menu.edit")%></a></li>
+				<li><a href="RoomManagement.jsp?buildingID=<%=buildingID%>"><%=resource.getString("editRoom.menu.returnR")%></a></li>
+				<li><a href="MainMenu.jsp"><%=resource.getString("editRoom.menu.returnM")%></a></li>
 			</ul>
 			
 			<div class="tab-content clearfix">
 				
 				<div class="tab-pane active" id="rooms">
-	          		<h2 class="col-sm-offset-1" >Edit ROOM</h2>
+	          		<h2 class="col-sm-offset-1"><%=resource.getString("editRoom.form.title")%></h2>
 					<form action="RoomEditServlet" method="post" class="form-horizontal">
 						<fieldset>
 						<input type="hidden" id="bNumb" name="BuildingNum" value="<%=buildingID %>" />
 						<input type="hidden" id="bNumb" name="RoomNumOld" value="<%=roomNum %>" />
 					    	<div class="form-group">
-					    		<label class= "control-label col-sm-2" for="rNumb">Room:</label>
+					    		<label class= "control-label col-sm-2" for="rNumb"><%=resource.getString("editRoom.form.room")%></label>
 					            <div class ="col-sm-9">
 					            	<input type="text" class="form-control" id="rNumb" name="RoomNum"  value="<%=room.getRoomID() %>" required="required" placeholder="Room number"/>
 					            </div>       
 					        </div>
 			                 <div class="form-group">       
-			                    <label class="control-label col-sm-2" for="pNumb">Capacity:</label>
+			                    <label class="control-label col-sm-2" for="pNumb"><%=resource.getString("editRoom.form.capacity")%></label>
 			                    <div class ="col-sm-9">
 			                    	<input type="text" class="form-control" id="pNumb" name="Capacity" value="<%=room.getCapacity() %>" required="required" placeholder="Capacity" />
 			                    </div>
 			                </div>
 							  <div class="form-group">       
-			                    <label class="control-label col-sm-2" for="info">Info:</label>
+			                    <label class="control-label col-sm-2" for="info"><%=resource.getString("editRoom.form.info")%></label>
 			                    <div class ="col-sm-9">
 			                    	<textarea class="form-control" id="info" name="Info"  required="required" placeholder="optional" ><%=room.getInfo() %></textarea>
 			                    </div>
 			                </div>
 			                <div class="form-group">        
-					        	<label class="control-label col-sm-2" for="active">Active:</label>
+					        	<label class="control-label col-sm-2" for="active"><%=resource.getString("editRoom.form.active")%></label>
 			      				<div class ="col-sm-9">       
 			      				<%if(room.getActive().equals("1")){%>
 			      						<input type="checkbox"  id="active" name="Active" checked="checked" />
@@ -70,7 +70,7 @@ Room room = RoomDao.getRoomDetails(buildingID, roomNum);
 					        </div>   
 					        <div class="form-group">        
 			      				<div class="col-sm-offset-2 col-sm-4">       
-				                    <input type="submit" value="Edit" class="btn btn-default" />
+				                    <input type="submit" value="<%=resource.getString("editRoom.form.update")%>" class="btn btn-default" />
 					        	</div>
 					        </div>   
 						</fieldset>

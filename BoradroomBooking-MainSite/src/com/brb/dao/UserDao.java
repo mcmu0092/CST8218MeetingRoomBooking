@@ -10,6 +10,8 @@ import com.brb.helpers.Building;
 import com.brb.helpers.Room;
 import com.brb.helpers.User;
 import com.brb.utilities.Encryption;
+import com.brb.utilities.SendEmail;
+
 import java.sql.Connection;
 
 public class UserDao {
@@ -18,7 +20,7 @@ public class UserDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		User user = null;
-		password = Encryption.decrypt(password);
+		//password = Encryption.decrypt(password); NOT REQUIRED
 		
 		try{
 			pst = conn.prepareStatement("select userNumber, username, firstName, lastName from userTable where username=? and password=?");
@@ -65,7 +67,7 @@ public class UserDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		User user = null;
-		password = Encryption.decrypt(password);
+		//password = Encryption.decrypt(password); //NOT REQUIRED
 		
 		try{
 			pst = conn.prepareStatement("SELECT userNumber FROM usertable WHERE username=? OR email=?");
@@ -89,6 +91,7 @@ public class UserDao {
 	                    e.printStackTrace();
 	                }
 	            }
+				
 				pst = conn.prepareStatement("INSERT into usertable (firstName, lastName, username, password, email, province, city, company) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 				pst.setString(1, firstName);
 				pst.setString(2, lastName);

@@ -24,7 +24,7 @@ if (session.getAttribute("lang") != null){
 }
 String langToChangeTo;
 if(session.getAttribute("lang").equals("en")){
-	langToChangeTo = "Francais";
+	langToChangeTo = "Fran\u00E7ais";
 } else {
 	langToChangeTo= "English";
 }

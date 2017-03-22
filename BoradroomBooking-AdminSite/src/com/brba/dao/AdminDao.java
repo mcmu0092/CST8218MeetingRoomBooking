@@ -13,7 +13,7 @@ public class AdminDao {
 		PreparedStatement pst =null;
 		ResultSet rs = null;
 		AdminUser aUser = null;
-		password = Encryption.decrypt(password);
+		//password = Encryption.decrypt(password); not required
 		
 		
 		try {
@@ -63,7 +63,7 @@ public class AdminDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;;
 		int status = 0;
-		password = Encryption.decrypt(password);
+		//password = Encryption.decrypt(password); not required
 		
 		try {
 			pst = conn.prepareStatement("SELECT adminNumber FROM admin WHERE userName=?");

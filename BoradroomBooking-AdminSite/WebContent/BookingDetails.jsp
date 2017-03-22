@@ -18,8 +18,7 @@ Booking booking = BookingDao.getBookingDetails(bookingID);
 		<h1><%=resource.getString("booking.menu.booking")%></h1>
 		<div  class="container-fluid">	
 			<ul class="nav nav-pills">
-				
-				<li class="active"><a href="#booking" data-toggle="tab"><%=resource.getString("booking.menu.booking")%></a></li>
+				<li class="active"><a href="#booking" data-toggle="tab"><%=resource.getString("booking.menu.tab")%></a></li>
 				<li><a href="ViewBookings.jsp"><%=resource.getString("booking.menu.return")%></a></li>
 				<li><a href="MainMenu.jsp"><%=resource.getString("booking.menu.returnM")%></a></li>
 			</ul>
@@ -27,41 +26,42 @@ Booking booking = BookingDao.getBookingDetails(bookingID);
 			<div class="tab-content clearfix">
 				
 				<div class="tab-pane active" id="booking">
-			    	<h2 ><%=resource.getString("booking.header.detail")%></h2>
-					<form class="form-horizontal">
-						<fieldset>
-					    	<div class="form-group">       
-			                    <label class="control-label col-sm-2" ><%=resource.getString("booking.label.MadeBy")%> </label>
-			                    <label class="control-label"><%=booking.getUser().getFirstName()%> <%=booking.getUser().getLastName() %></label>
-			                </div>
-			                <div class="form-group">
-			                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.Email")%></label>
-			                	<label class="control-label" ><%=booking.getUser().getEmail()%></label>
-			                </div>
-			                <div class="form-group">
-			                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.RoomNum")%></label>
-			                	<label class="control-label" ><%=booking.getRoomNumber()%></label>
-			                </div>
-			                 <div class="form-group">
-			                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.Address")%></label>
-			                	<label class="control-label" ><%=booking.getBuilding().getAddress()%></label>
-			                	<label class="control-label" ><%=booking.getBuilding().getCity()%></label>
-			                	<label class="control-label" ><%=booking.getBuilding().getProvince()%></label>
-			                </div>
-			                <div class="form-group">
-			                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.Date")%></label>
-			                	<label class="control-label" ><%=resource.getString("booking.label.Start")%> <%=booking.getStartBooking()%></label>
-			                	<label class="control-label" ><%=resource.getString("booking.label.End")%> <%=booking.getEndBooking()%></label>
-			                	
-			                </div>
-			                 <div class="form-group">
-			                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.Info")%></label>
-			                	<label class="control-label" ><%=booking.getInfo() %></label>
-			                	
-			                	
-			                </div>
-						</fieldset>
-					</form>	
+			   		<div class="container-fluid">
+						<form class="form-horizontal">
+							<fieldset>
+						    	<div class="form-group">       
+				                    <label class="control-label col-sm-2" ><%=resource.getString("booking.label.MadeBy")%> </label>
+				                    <label class="control-label"><%=booking.getUser().getFirstName()%> <%=booking.getUser().getLastName() %></label>
+				                </div>
+				                <div class="form-group">
+				                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.Email")%></label>
+				                	<label class="control-label" ><%=booking.getUser().getEmail()%></label>
+				                </div>
+				                <div class="form-group">
+				                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.RoomNum")%></label>
+				                	<label class="control-label" ><%=booking.getRoomNumber()%></label>
+				                </div>
+				                 <div class="form-group">
+				                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.Address")%></label>
+				                	<label class="control-label" ><%=booking.getBuilding().getAddress()%></label>
+				                	<label class="control-label" ><%=booking.getBuilding().getCity()%></label>
+				                	<label class="control-label" ><%=booking.getBuilding().getProvince()%></label>
+				                </div>
+				                <div class="form-group">
+				                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.Date")%></label>
+				                	<label class="control-label" ><%=resource.getString("booking.label.Start")%> <%=booking.getStartBooking()%></label>
+				                	<label class="control-label" ><%=resource.getString("booking.label.End")%> <%=booking.getEndBooking()%></label>
+				                	
+				                </div>
+				                 <div class="form-group">
+				                	<label class="control-label col-sm-2" ><%=resource.getString("booking.label.Info")%></label>
+				                	<label class="control-label" ><%=booking.getInfo() %></label>
+				                	
+				                	
+				                </div>
+							</fieldset>
+						</form>	
+					</div>
 				</div>
 				
 			</div>

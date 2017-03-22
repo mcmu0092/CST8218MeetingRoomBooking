@@ -21,9 +21,7 @@ if(status == 0){
 	out.print("<p style=\"color:red\">An error happened</p>"); 
 	RequestDispatcher rd=request.getRequestDispatcher("RoomManagement.jsp?buildingID="+buildingID);  
 	rd.include(request,response);
-}
-
-	
+}	
 %>
 </body>
 </html>

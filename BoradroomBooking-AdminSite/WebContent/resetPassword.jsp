@@ -13,22 +13,21 @@
 <%@include file="Header.jsp" %>
 <div class="container">
 		<div class="formContent">
-			<h1 class="col-sm-offset-1">Change Password</h1>
+			<h1 class="col-sm-offset-1"><%=resource.getString("reset.label.title")%></h1>
 			<form action="PasswordUpdateServlet" method="post" class="form-horizontal">
 				<fieldset>
 				<input type="hidden" id="aNumb" name="AdminNum" value="<%=adminID %>" />
 			    <input type="hidden" id="rFlag" name="rFlag" value="<%=resetFlag %>" />	
 			        <div class="form-group">       
-	                    <label class="control-label col-sm-2" for="pwd">Password:</label>
+	                    <label class="control-label col-sm-2" for="pwd"><%=resource.getString("reset.label.pass")%></label>
 	                    <div class ="col-sm-9">
-	                    	<input type="password" class="form-control" id="pwd" name="userpass" required="required" placeholder="Password" />
+	                    	<input type="password" class="form-control" id="pwd" name="userpass" required="required" placeholder="<%=resource.getString("reset.holder.pass")%>" />
 	                    </div>
 	                </div>  
 	                 
 			        <div class="form-group">        
 	      				<div class="col-sm-offset-2 col-sm-4">       
-		                    <input type="submit" value="Update" class="btn btn-default" />
-		                    
+		                    <input type="submit" value="<%=resource.getString("reset.btn.update")%>" class="btn btn-default" />
 			        	</div>
 			        </div>   
 				</fieldset>

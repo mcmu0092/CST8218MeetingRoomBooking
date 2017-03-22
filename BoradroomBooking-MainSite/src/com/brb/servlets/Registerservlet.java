@@ -36,6 +36,7 @@ public class Registerservlet extends HttpServlet
 
 
 		if(user != null){
+			SendEmail.send("boardroombookingcst8218@gmail.com","WebApps300!",email,"Welcome to BoardRoom Bookings", "You have now registered with BoardRoom Bookings!");
 			HttpSession session = request.getSession(false);
             if (session!=null){
             	 session.setAttribute("name", user.getUserName());

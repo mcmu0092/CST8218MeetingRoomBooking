@@ -24,7 +24,8 @@ public class LoginServletAdmin extends HttpServlet {
         PrintWriter out = response.getWriter();  
         
         String n= request.getParameter("username");  
-        String p= Encryption.encrypt(request.getParameter("userpass")); 
+        //String p= Encryption.encrypt(request.getParameter("userpass")); 
+        String p= request.getParameter("userpass"); 
         
         AdminUser aUser = AdminDao.login(n, p);
         if(aUser != null){

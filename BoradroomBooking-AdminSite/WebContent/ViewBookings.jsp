@@ -21,42 +21,44 @@
 		<h1><%=resource.getString("bookings.menu.bookings")%></h1>
 		<div  class="container-fluid">	
 			<ul class="nav nav-pills">
-				
-				<li class="active"><a href="#bookings" data-toggle="tab"><%=resource.getString("bookings.menu.bookings")%></a></li>
+				<li class="active"><a href="#bookings" data-toggle="tab"><%=resource.getString("bookings.menu.tab")%></a></li>
 				<li><a href="MainMenu.jsp"><%=resource.getString("bookings.menu.returnM")%></a></li>
 			</ul>
 			
 			<div class="tab-content clearfix">
 				
 				<div class="tab-pane active" id="bookings">
-			    <% 
-			    ArrayList<Booking> bookingList = BookingDao.getBookingList();
-			    int listSize = bookingList.size();
-			    if(listSize !=0){
-			    	out.print("<h3>" + resource.getString("bookings.header.list")+"</h3>");
-					out.print("<table>");
-					/****************Row One****************/
-					out.print("<tr>");
-					out.print("<td>" + resource.getString("bookings.list.ID")+"</td>");
-					out.print("<td>" + resource.getString("bookings.list.MadeBy")+"</td>");
-					out.print("<td>" + resource.getString("bookings.list.At")+"</td>");
-					out.print("<td>" + resource.getString("bookings.list.Till")+"</td>");
-					out.print("</tr>");
-					for(int i = 0; i < listSize; i++){
-						out.print("<tr>");
-						out.print("<td>" + bookingList.get(i).getBookingNumber() + "</td>");
-						out.print("<td>" + bookingList.get(i).getUser().getFirstName() + bookingList.get(i).getUser().getLastName() + "</td>");
-						out.print("<td>" + bookingList.get(i).getStartBooking()+ "</td>");
-						out.print("<td>" + bookingList.get(i).getEndBooking() + "</td>");
-						out.print("<td><a href=\"BookingDetails.jsp?BookingId=" +  bookingList.get(i).getBookingNumber() + "\">" + resource.getString("bookings.link.details")+"</a></td>");
-						out.print("</tr>");
-						
-					}
-					out.print("</table>");
-			    } else {
-			    	out.print("<h3>" + resource.getString("bookings.header.nobookings")+"</h3>");
-			    }
-			    %>
+					<div class="container-fluid">
+					    <% 
+					    ArrayList<Booking> bookingList = BookingDao.getBookingList();
+					    int listSize = bookingList.size();
+					    if(listSize !=0){
+							out.print("<div class='table-responsive table-hover'><table class='table'> <thead>");
+							/****************Row One****************/
+							out.print("<tr>");
+							out.print("<th>" + resource.getString("bookings.list.ID")+"</th>");
+							out.print("<th>" + resource.getString("bookings.list.MadeBy")+"</th>");
+							out.print("<th>" + resource.getString("bookings.list.At")+"</th>");
+							out.print("<th>" + resource.getString("bookings.list.Till")+"</th>");
+							out.print("<th></th>");
+							out.print("</tr></thead>");
+							out.print("<tbody>");
+							for(int i = 0; i < listSize; i++){
+								out.print("<tr>");
+								out.print("<td>" + bookingList.get(i).getBookingNumber() + "</td>");
+								out.print("<td>" + bookingList.get(i).getUser().getFirstName() + bookingList.get(i).getUser().getLastName() + "</td>");
+								out.print("<td>" + bookingList.get(i).getStartBooking()+ "</td>");
+								out.print("<td>" + bookingList.get(i).getEndBooking() + "</td>");
+								out.print("<td><a href=\"BookingDetails.jsp?BookingId=" +  bookingList.get(i).getBookingNumber() + "\">" + resource.getString("bookings.link.details")+"</a></td>");
+								out.print("</tr>");
+								
+							}
+							out.print("</tbody></table></div>");
+					    } else {
+					    	out.print("<h3>" + resource.getString("bookings.header.nobookings")+"</h3>");
+					    }
+					    %>
+					</div>
 				</div>
 				
 			</div>
