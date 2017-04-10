@@ -42,24 +42,23 @@ if(session.getAttribute("lang").equals("en")){
 					<span class="icon-bar"></span> 
 				</button>
 				<%if(session.getAttribute("name") == null) {%>
-					<a class="navbar-brand" href="login.jsp">LOGIN /</a>
-					<a class="navbar-brand" href="resgister.jsp">REGISTER</a>
+					<a class="navbar-brand" href="login.jsp"><%=resource.getString("header.link.login") %> </a>
+					<a class="navbar-brand" href="resgister.jsp"><%=resource.getString("header.link.register") %></a>
 					
 					<%} else { %>
-				<span class="navbar-brand">Welcome, <%= session.getAttribute("name") %> </span>
+				<span class="navbar-brand"><%=resource.getString("header.label.welcome") %>, <%=session.getAttribute("name") %> </span>
 			<%} %>
 			</div>
 			
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="index.jsp">HOME</a></li>
-					<li><a href="index.jsp#about">ABOUT</a></li>
-					<li><a href="Booking.jsp?rowOffSet=1">BOOKING</a></li>
-					<li><a href="index.jsp#contact">CONTACT</a></li>
-					<%if(session.getAttribute("name")!= null) { %> 
-					<li><a href="profile.jsp">PROFILE</a></li> 
-					<li><a href="Logout.jsp">LOGOUT</a></li> 
-					<% } %>
+					<li><a href="index.jsp"><%=resource.getString("header.link.home") %></a></li>
+					<li><a href="index.jsp#about"><%=resource.getString("header.link.about") %></a></li>
+					<li><a href="Booking.jsp?rowOffSet=1"><%=resource.getString("header.link.booking") %></a></li>
+					<li><a href="index.jsp#contact"><%=resource.getString("header.link.contact") %></a></li>
+					<%if(session.getAttribute("name")!= null) { %>
+					<li><a href="profile.jsp"><%=resource.getString("header.link.profile") %></a></li>  
+					<li><a href="Logout.jsp"><%=resource.getString("header.link.logout") %></a></li> <% } %>
 					<li><a href="ChangeLanguage.jsp"><%=langToChangeTo%></a></li>
 				</ul>
 			</div>
