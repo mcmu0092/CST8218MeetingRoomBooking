@@ -14,7 +14,7 @@
 		<div class="headerContent">
 			<div class="row">
 				<div class="col-md-2">
-				  <img src="resource/logo2.png" class="img-responsive">
+				  <img src="resource/logo2.png" class="img-responsive" style="">
 				</div>
 				<div class="col-md-10">
 					<h1 class="page-header">
