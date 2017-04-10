@@ -104,24 +104,33 @@ public class BookingDao {
 		Connection conn = Dao.getConnection();
         ArrayList<Booking> bookings = new ArrayList<Booking>();
         PreparedStatement pst = null;
-        Booking booking;							
+        Booking booking;	
+        Building building;
         ResultSet rs = null;
         
         try {
-        	pst = conn.prepareStatement("SELECT * FROM bookings WHERE userNumber='" + userID + "'");
+        	pst = conn.prepareStatement("SELECT bk.buildingNumber, bk.roomNumber, bk.startBooking, bk.endBooking, bk.info,  bd.address, bd.city, bd.province FROM bookings bk  INNER JOIN buildings bd on bk.buildingNumber = bd.buildingNumber WHERE bk.userNumber = ?");
+			pst.setString(1, userID);
         	rs = pst.executeQuery();
-        	
         	//Stores the results
         	while(rs.next())
         	{
         		booking = new Booking();
-        		booking.setBookingNumber(rs.getString("bookingNumber"));
-        		booking.setUserNumber(rs.getString("userNumber"));
+        		
+        		
         		booking.setBuildingNumber(rs.getString("buildingNumber"));
         		booking.setRoomNumber(rs.getString("roomNumber"));
         		booking.setStartBooking(rs.getString("startBooking"));
         		booking.setEndBooking(rs.getString("endBooking"));
         		booking.setInfo(rs.getString("info"));
+        		
+        		building = new Building();
+        		building.setID(rs.getString("bk.buildingNumber"));
+				building.setAddress(rs.getString("bd.address"));
+				building.setCity(rs.getString("bd.city"));
+				building.setProvince(rs.getString("bd.province"));
+				booking.setBuilding(building);
+        		
         		bookings.add(booking);
         	}
         	

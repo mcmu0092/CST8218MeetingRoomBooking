@@ -23,7 +23,7 @@ public class EditProfileServlet extends HttpServlet
 		
 		String userNumber = request.getParameter("userNumber");
 		String username = request.getParameter("username");
-		String password = Encryption.encrypt(request.getParameter("password"));  //stores encrypted password
+		//String password = Encryption.encrypt(request.getParameter("password"));  //stores encrypted password
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String email = request.getParameter("email");
@@ -35,7 +35,7 @@ public class EditProfileServlet extends HttpServlet
 		
 		if(username != null)
 		{
-			UserDao.editProfile(userNumber, username, password, firstName, lastName, email, company, city, province);
+			UserDao.editProfile(userNumber, username,  firstName, lastName, email, company, city, province);
 			response.sendRedirect("profile.jsp");
 		}else
 		{

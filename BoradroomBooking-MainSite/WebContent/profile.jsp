@@ -68,15 +68,13 @@
 					<form action="EditProfileServlet" method="post" class="form-horizontal">
 						<fieldset>
 							<%
+							out.print("<input type=\"hidden\" name=\"userNumber\" value=\"\" "+ curUser.getUserNumber() + "/>");
 							out.print("<div class='form-group'>");
 							out.print("<label class='control-label col-sm-2'>Username:</label >");
 							out.print("<div class ='col-sm-9'><input type=\"text\" name=\"username\" class='form-control' value=\"" + curUser.getUserName() + "\"></div>");
 							out.print("</div>");
 							
-							out.print("<div class='form-group'>");
-							out.print("<label class='control-label col-sm-2'>Password:</label>");
-							out.print("<div class ='col-sm-9'><input type=\"password\" class='form-control' name=\"password\"></div>");
-							out.print("</div>");
+							
 							
 							out.print("<div class='form-group'>");
 							out.print("<label class='control-label col-sm-2'>First Name:</label>");
@@ -138,7 +136,7 @@
 						{
 							
 							out.print("<tr>");
-							out.print("<td>" + Bookings.get(i).getBuildingNumber() + "</td>");
+							out.print("<td>" + Bookings.get(i).getBuilding().getAddress() + " "+Bookings.get(i).getBuilding().getCity() +","+ Bookings.get(i).getBuilding().getProvince()+  "</td>");
 							out.print("<td>" + Bookings.get(i).getRoomNumber() + "</td>");
 							out.print("<td>" + Bookings.get(i).getStartBooking()+ "</td>");
 							out.print("<td>" + Bookings.get(i).getEndBooking() + "</td>");

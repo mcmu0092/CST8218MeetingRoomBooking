@@ -146,7 +146,9 @@ table tbody tr a:hover{
 .nav-pills > active {
 	background-color:  #006db3;
 }
-
+.img-responsive {
+    margin: 0 auto;
+}
 
    
 
