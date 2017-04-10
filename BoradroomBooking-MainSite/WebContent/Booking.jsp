@@ -13,7 +13,7 @@
 <link href="./resource/datetimepickercss/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 <script>
 $(document).ready(function () {
-    $('#roomBooking').on('show.bs.modal', function (event) {
+    $('#roomBooking').on('shown.bs.modal', function (event) {
         var buildingNum = ($(event.relatedTarget).data('building_num'));
         var roomNum = ($(event.relatedTarget).data('room_num'));
         $(".modal-body #bNumb").val( buildingNum );
