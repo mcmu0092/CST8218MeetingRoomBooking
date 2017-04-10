@@ -56,11 +56,20 @@ a{
 	border-radius:25px; /* regular */
 }
 .roomContent{
-	
+	margin-top: 40px;
 	background-color: #009BFF; 
 	background:rgba(0,82,136,0.7);
 	padding: 15px;
 	color:	#ffffff;
+}
+#roomBooking{
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding:0;
 }
 .logo {
 	color: #ffa12a;
@@ -111,7 +120,33 @@ h4.italic{
 	padding-top:0;
 	margin-top:0;
 	font-style: italic;
- }
+}
+table{
+	color:#ffffff;
+}
+table tbody tr:hover{
+	color:#ffffff;
+	background-color:#34383f;
+}
+table tbody tr a:hover{
+	color: #ffa12a; /* blue colors for links too */
+  	text-decoration: none; /* no underline */
+}
+.list-group a:hover{
+	color: #ffa12a;
+}
+#myTab .tab-content {
+  color : white;
+  background-color:  #006db3;
+  
+}
+#myTab .nav-pills > li > a {
+ border-radius: 4px 4px 0 0 ;
+}
+.nav-pills > active {
+	background-color:  #006db3;
+}
+
 
    
 

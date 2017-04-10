@@ -56,7 +56,10 @@ if(session.getAttribute("lang").equals("en")){
 					<li><a href="index.jsp#about">ABOUT</a></li>
 					<li><a href="Booking.jsp?rowOffSet=1">BOOKING</a></li>
 					<li><a href="index.jsp#contact">CONTACT</a></li>
-					<%if(session.getAttribute("name")!= null) { %> <li><a href="Logout.jsp">LOGOUT</a></li> <% } %>
+					<%if(session.getAttribute("name")!= null) { %> 
+					<li><a href="profile.jsp">PROFILE</a></li> 
+					<li><a href="Logout.jsp">LOGOUT</a></li> 
+					<% } %>
 					<li><a href="ChangeLanguage.jsp"><%=langToChangeTo%></a></li>
 				</ul>
 			</div>
