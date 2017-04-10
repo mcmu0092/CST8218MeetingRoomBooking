@@ -106,7 +106,7 @@ a{
     color: #fff !important;
 }
 
- .container-fluid {
+.container-fluid {
       padding: 50px 40px;
       margin-bottom: 0;
   }
@@ -121,16 +121,16 @@ h4.italic{
 	margin-top:0;
 	font-style: italic;
 }
-table{
+.roomContent table{
 	color:#ffffff;
 }
-table tbody tr:hover{
+.roomContent table tbody tr:hover{
 	color:#ffffff;
 	background-color:#34383f;
 }
-table tbody tr a:hover{
-	color: #ffa12a; /* blue colors for links too */
-  	text-decoration: none; /* no underline */
+.roomContent table tbody tr a:hover{
+	color: #ffa12a; blue colors for links too
+  	text-decoration: none; no underline
 }
 .list-group a:hover{
 	color: #ffa12a;
@@ -148,7 +148,7 @@ table tbody tr a:hover{
 }
 .img-responsive {
     margin: 0 auto;
-}
+} */
 
    
 
