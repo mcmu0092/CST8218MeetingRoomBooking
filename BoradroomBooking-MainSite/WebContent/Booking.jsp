@@ -58,7 +58,7 @@ $(document).ready(function () {
 			out.print("</tbody></table></div>");
 		}%>		
 		</div>
-		<div id="roomBooking" class="modal" role="dialog" data-backdrop="static">
+		<div id="roomBooking" class="modal" role="dialog" >
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -122,6 +122,6 @@ $(document).ready(function () {
 					</div> <!-- end of modal content -->
 				</div> <!-- end of modal dialogue -->
 			</div> <!-- end of modal -->
-		</div>
+		
 </body>
 </html>
