@@ -201,7 +201,7 @@ public class UserDao {
 		return user;
 	}//End of getUser
 	
-	public static void editProfile(String userNumber, String username, String password, String firstName, String lastName,
+	public static void editProfile(String userNumber, String username, String firstName, String lastName,
 									String email, String company, String city, String province)
 	{
 		Connection conn = Dao.getConnection();
@@ -209,13 +209,13 @@ public class UserDao {
 		
 		
 		try {
-//        	pst = conn.prepareStatement("UPDATE usertable SET firstName='" + firstName + "', lastName='" + lastName
-//        								+ "', username='" + username + "', email='" + email + "', province='" + province
-//        								+ "', city='" + city + "', company='" + company + "' WHERE userNumber='" + userNumber + "';");
-			
         	pst = conn.prepareStatement("UPDATE usertable SET firstName='" + firstName + "', lastName='" + lastName
-					+ "', username='" + username + "', password='" + password + "', email='" + email + "', province='" + province
-					+ "', city='" + city + "', company='" + company + "' WHERE userNumber='" + userNumber + "';");
+        								+ "', username='" + username + "', email='" + email + "', province='" + province
+        								+ "', city='" + city + "', company='" + company + "' WHERE userNumber='" + userNumber + "';");
+			
+//        	pst = conn.prepareStatement("UPDATE usertable SET firstName='" + firstName + "', lastName='" + lastName
+//					+ "', username='" + username + "', password='" + password + "', email='" + email + "', province='" + province
+//					+ "', city='" + city + "', company='" + company + "' WHERE userNumber='" + userNumber + "';");
         	
         	pst.executeUpdate();
         	

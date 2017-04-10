@@ -14,7 +14,7 @@
 		<div class="headerContent">
 			<div class="row">
 				<div class="col-md-2">
-				  <img src="resource/logo2.png" class="img-responsive">
+				  <img src="resource/logo2.png" class="img-responsive" style="">
 				</div>
 				<div class="col-md-10">
 					<h1 class="page-header">
@@ -114,13 +114,13 @@
 				  <!--  slides -->
 					<div class="carousel-inner" role="listbox">  
 						<div class="item active">
-							<img src="resource/meetingA.jpg" alt="Vancouver">
+							<img class="img-responsive" src="resource/meetingA.jpg" alt="Vancouver">
 						</div>
 						<div class="item">
-							<img src="resource/meetingB.jpg" alt="Ottawa">
+							<img class="img-responsive" src="resource/meetingB.jpg" alt="Ottawa">
 						</div>
 						<div class="item">
-							<img src="resource/meetingC.jpg" alt="Montreal">
+							<img class="img-responsive" src="resource/meetingC.jpg" alt="Montreal">
 						</div>
 					</div>
 				  <!-- Left and right controls -->

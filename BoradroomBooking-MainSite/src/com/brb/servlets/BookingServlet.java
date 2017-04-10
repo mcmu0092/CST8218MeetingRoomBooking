@@ -48,7 +48,7 @@ public class BookingServlet extends HttpServlet {
 			
 			
 			BookingDao.bookRoom(session.getAttribute("userID").toString(),  request.getParameter("BuildingNum"),  request.getParameter("RoomNum"), sdf.format(startTime.getTime()), sdf.format(endTime.getTime()), info);			
-			 response.sendRedirect("Booking.jsp?rowOffSet=1"); 
+			 response.sendRedirect("profile.jsp"); 
 		} else {
 			
 			RequestDispatcher rd=request.getRequestDispatcher("Booking.jsp?rowOffSet=1");  
