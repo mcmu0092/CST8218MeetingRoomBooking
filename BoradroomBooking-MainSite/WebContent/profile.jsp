@@ -69,7 +69,7 @@
 					<form action="EditProfileServlet" method="post" class="form-horizontal">
 						<fieldset>
 							<%
-							out.print("<input type=\"hidden\" name=\"userNumber\" value=\"\" "+ curUser.getUserNumber() + "/>");
+							out.print("<input type=\"hidden\" name=\"userNumber\" value=\""+ curUser.getUserNumber() + "\"/>");
 							out.print("<div class='form-group'>");
 							out.print("<label class='control-label col-sm-2'>"+resource.getString("profile.label.username")+"</label >");
 							out.print("<div class ='col-sm-9'><input type=\"text\" name=\"username\" class='form-control' value=\"" + curUser.getUserName() + "\"></div>");
